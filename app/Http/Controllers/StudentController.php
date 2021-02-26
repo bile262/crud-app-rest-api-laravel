@@ -54,6 +54,11 @@ class StudentController extends Controller
     public function show($id)
     {
         //
+        $students = Student::findOrFail($id);
+        if($students)
+           return response()->json($students);
+        else
+            return response()->json(error);
     }
 
     /**
